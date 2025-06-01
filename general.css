@@ -20,11 +20,19 @@
     transition: background-image 1s ease-in-out;
 }
 
-.slider::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+
+:root{
+
+    --cp1: #e6e9e6;
+    --cp2: #0c2443;
+    --cp3: #616e7f;
+    --cp4: #8c94a5;
+
+}
+
+/* -------------------------header ------------------- */
+
+header{
     width: 100%;
     height: 100%;
     z-index: 1;
