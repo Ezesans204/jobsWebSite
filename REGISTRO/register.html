@@ -25,13 +25,25 @@
 
    <div class="bodySection">
 
-    <form action="register.php">
-        <input type="text" name="" id="">
-        <input type="email" name="" id="">
-        <input type="checkbox" name="" id="">
+    <form action="register.php" method="POST" id="form_register">
+        <input type="text" name="CI" id="CI" placeholder="CI">
+        <input type="email" name="email" id="email" placeholder="Email">
+        <input type="password" name="password" id="password" placeholder="Clave">
+        <input type="password" name="password2" id="password2" placeholder="Clave">
+        
+        <!-- <input type="checkbox" name="" id=""> -->
+
+        <input type="submit" value="Register" name = "send">
+
+    
     </form>
+
+    <div class="message">
+        
+    </div>
     
    </div>
     
 </body>
+<script type="module" src="./register.js"></script>
 </html>
