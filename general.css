@@ -9,7 +9,7 @@
 }
 
 /* Fondo de página animado con transición */
-.slider {
+/* .slider {
     position: fixed;
     top: 0;
     left: 0;
@@ -18,7 +18,7 @@
     z-index: -1;
     animation: fondoSlider 18s infinite;
     transition: background-image 1s ease-in-out;
-}
+} */
 
 
 :root{
