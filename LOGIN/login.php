@@ -1,33 +1,39 @@
 <?php
 header('Content-Type: application/json'); // Establece el tipo de contenido como JSON
-
-// Recibir la solicitud (POST)
 $data = json_decode(file_get_contents('php://input'), true);
-
-if($_SERVER["REQUEST_METHOD"] === "POST"){
 
     $message = "error";
     
-    $CI = htmlspecialchars(htmlentities($_POST["CI"]));
-    $email = htmlspecialchars(htmlentities($_POST["email"]));
+    // $CI = htmlspecialchars(htmlentities($_POST["CI"]));
+    // $email = htmlspecialchars(htmlentities($_POST["email"]));
     
+    $email = $data["email"];
+    $password = $data["password"];
 
     //coneixion a la base de datos y demas
   try{
-     $link = new PDO("mysql:host=localhost;dbname=clientes","root","");
+     $link = new PDO("mysql:host=localhost;dbname=clientes","root","admin");
      
-     $Sql_select = "SELECT * FROM usuarios2 WHERE CI = ? AND EMAIL = ?";
+     $Sql_select = "SELECT ClAVE FROM usuarios WHERE EMAIL = ?";
      $stmt = $link -> prepare($Sql_select);
-     $stmt -> bindParam(1,$CI);
-     $stmt -> bindParam(2,$email);
+     $stmt -> bindParam(1,$email);
+    //  $stmt -> bindParam(1,$password);
      $stmt -> execute();
 
      if($stmt -> rowCount() > 0){
          
-        session_start();
-        $_SESSION["CI"] = $CI;
-        $message = "success"; //equivalente a header("location: url") ya que esto se manda a JS y se trabaja ahí para mayor seguridad
+         $result = $stmt->fetchAll(); //recupera el hash del campo clave de la bbdd
+         $hash = $result[0][0]; //la almacena el hash
+         $password_hash = password_verify($password,$hash);//verifica si el hash pertenece a la clave
+         $message = $password_hash;
 
+         if($password_hash){
+           session_start();
+           $_SESSION["CI"] = $email;
+           $message = "success"; //equivalente a header("location: url") ya que esto se manda a JS y se trabaja ahí para mayor seguridad
+         }
+
+         else $message = "incorrect";
      }
 
 
@@ -40,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
       
     }
     
-}
+
 
 
 
