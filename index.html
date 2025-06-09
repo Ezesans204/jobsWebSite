@@ -3,99 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T
-         - Plataforma de Oficios</title>
+    <title>TrabajoPlus - Plataforma de Oficios</title>
     <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <!-- CABECERA -->
-    <header>
-        <div class="logo">TrabajoFácil</div>
-        <nav>
-            <ul>
-                <li><a href="./LOGIN/login.html">Ingresar</a></li>
-                <li><a href="./REGISTRO/register.html">Registrarse</a></li>
-                <li><a href="about.html">Acerca de</a></li>
-                <li><a href="info.html">Más info</a></li>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">TrabajoPlus</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#empleos">Empleos</a></li>
+                <li><a href="#empresas">Empresas</a></li>
+                <li><a href="LOGIN/login.html">inicio secion</a></li>
+                <li><a href="REGISTRO/register.html" style="background: rgba(255,255,255,0.2);">Registrarse</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- SLIDER DE IMÁGENES -->
-    <section class="cover">
-        <ul class="slider">
-        <img src="imagnes/fondo1.jpg" alt="Imagen 1">
-        <img src="imagnes/fondo2.jpg" alt="Imagen 2">
-        <img src="imagnes/fondo3.png" alt="Imagen 3">
-        </ul>
-    </section>
-
-    <!-- MENSAJE DE BIENVENIDA Y BOTONES -->
-    <section class="bienvenida">
-        <h1>Conectamos clientes con profesionales</h1>
-        <p>Buscá, ofrecé y reservá servicios de forma rápida y segura.</p>
-        <div class="botones">
-            <a href="buscar.html" class="btn">Buscar trabajo</a>
-            <a href="publicar.html" class="btn secundario">Publicar servicio</a>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Encuentra tu trabajo soñado</h1>
+            <p>Conectamos talento con oportunidades. Miles de empleos esperan por ti en las mejores empresas del país.</p>
+            <form class="buscador" id="buscador-container" onsubmit="event.preventDefault(); buscarTrabajo();">
+                <div class="search-container">
+                    <div class="buscador-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" class="icono izquierda" alt="Ícono de búsqueda">
+                        <input type="text" id="busqueda" placeholder="¿Qué trabajo buscas? (ej: Desarrollador, Marketing, Ventas)" autocomplete="off">
+                    </div>
+                    <input type="text" class="location-input" placeholder="¿Dónde? (Ciudad, País)">
+                    <button type="submit" class="search-btn">Buscar Empleo</button>
+                </div>
+            </form>
         </div>
     </section>
 
-    <!-- Página de inicio -->
-    <section id="inicio">
-        <h2>Bienvenido a la Plataforma de Oficios</h2>
-        <p>Conecta con proveedores y clientes de servicios fácilmente.</p>
-    </section>
-
-    <!-- Página de búsqueda de servicios -->
-    <section id="buscar-servicios">
-        <h2>Buscar Servicios</h2>
-        <form>
-            <label for="categoria">Categoría:</label>
-            <select id="categoria" name="categoria">
-                <option value="plomeria">Plomería</option>
-                <option value="electricidad">Electricidad</option>
-                <option value="jardineria">Jardinería</option>
-            </select>
-
-            <label for="ubicacion">Ubicación:</label>
-            <input type="text" id="ubicacion" name="ubicacion" placeholder="Ciudad o dirección">
-
-            <label for="palabra-clave">Palabra clave:</label>
-            <input type="text" id="palabra-clave" name="palabra-clave" placeholder="Ejemplo: reparación">
-
-            <button type="submit">Buscar</button>
-        </form>
-    </section>
-
-    <!-- Página de detalle del servicio -->
-    <section id="detalle-servicio">
-        <h2>Detalle del Servicio</h2>
-        <article>
-            <h3>Servicio de Plomería</h3>
-            <p>Descripción: Reparación de tuberías y mantenimiento.</p>
-            <p>Ubicación: Montevideo</p>
-            <p>Precio: $100</p>
-        </article>
-    </section>
-
-
-    <!-- Bandeja de entrada de mensajes -->
-    <section id="mensajes">
-        <h2>Mensajes</h2>
-        <ul>
-            <li><a href="#">Mensaje de Cliente 1</a></li>
-            <li><a href="#">Mensaje de Cliente 2</a></li>
+    <!-- Slider de Imágenes -->
+    <section class="cover">
+        <ul class="slider">
+           <img src="imagnes/fondo1.jpg" alt="fondo1">
+          <img src="imagnes/fondo2.jpg" alt="fondo2">
+            <img src="imagnes/fondo3.jpg" alt="fondo3">
+            <img src="imagnes/fondo4.jpg" alt="fondo4">
         </ul>
     </section>
 
-    <!-- PIE DE PÁGINA -->
-    <footer>
-        <p>&copy; 2025 TrabajoFácil. Todos los derechos reservados.</p>
-        <p>Contacto: <strong>lucasismaeldelpiano3@gmail.com</strong> | Tel: <strong>099134355</strong></p>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">15,000+</div>
+                <div class="stat-label">Empleos Activos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2,500+</div>
+                <div class="stat-label">Empresas Registradas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50,000+</div>
+                <div class="stat-label">Candidatos Exitosos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Tasa de Satisfacción</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <h2 class="section-title">¿Por qué elegir TrabajoPlus?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Búsqueda Inteligente</h3>
+                    <p>Algoritmos avanzados que te conectan con las oportunidades más relevantes según tu perfil y experiencia.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Aplicación Rápida</h3>
+                    <p>Aplica a múltiples empleos con un solo clic. Tu perfil se adapta automáticamente a cada posición.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏢</div>
+                    <h3>Empresas Verificadas</h3>
+                    <p>Trabajamos solo con empresas certificadas y de confianza. Tu seguridad es nuestra prioridad.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Análisis de Mercado</h3>
+                    <p>Accede a datos salariales actualizados y tendencias del mercado laboral en tiempo real.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Alertas Personalizadas</h3>
+                    <p>Recibe notificaciones instantáneas de nuevas oportunidades que coincidan con tus intereses.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Desarrollo Profesional</h3>
+                    <p>Recursos, cursos y consejos para impulsar tu carrera profesional hacia el siguiente nivel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="footer-container">
+            <div class="footer-content">
+                <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">TrabajoPlus</h3>
+                <p style="color: #94a3b8; max-width: 600px; margin: 0 auto;">
+                    Tu plataforma de confianza para encontrar las mejores oportunidades laborales. Conectamos talento con empresas líderes.
+                </p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Ayuda</a>
+                <a href="#">Términos de Uso</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Para Empresas</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="contact-info">
+                <p>📞 Teléfono: +598 99 123 456</p>
+                <p>✉️ Email: lucasismaeldelpiano3@gmail.com</p>
+                <p>📍 Montevideo, Uruguay</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Todos los derechos reservados.</p>
+            </div>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
