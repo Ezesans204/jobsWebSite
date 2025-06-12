@@ -2,10 +2,7 @@
 header('Content-Type: application/json'); // Establece el tipo de contenido como JSON
 $data = json_decode(file_get_contents('php://input'), true);
 
-    $message = "error";
-    
-    // $CI = htmlspecialchars(htmlentities($_POST["CI"]));
-    // $email = htmlspecialchars(htmlentities($_POST["email"]));
+    $message = "error"; //esta variable se enviará a js y se trabajará desde ahí en los archivos "login.js" y "register.js"
     
     $email = $data["email"];
     $password = $data["password"];
@@ -17,7 +14,6 @@ $data = json_decode(file_get_contents('php://input'), true);
      $Sql_select = "SELECT ClAVE FROM usuarios WHERE EMAIL = ?";
      $stmt = $link -> prepare($Sql_select);
      $stmt -> bindParam(1,$email);
-    //  $stmt -> bindParam(1,$password);
      $stmt -> execute();
 
      if($stmt -> rowCount() > 0){
@@ -33,7 +29,7 @@ $data = json_decode(file_get_contents('php://input'), true);
            $message = "success"; //equivalente a header("location: url") ya que esto se manda a JS y se trabaja ahí para mayor seguridad
          }
 
-         else $message = "incorrect";
+         else $message = "incorrect"; //mostrara un sms de "usario y/o calve incorrecta" con js en el obj ".message"
      }
 
 
